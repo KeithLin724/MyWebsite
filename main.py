@@ -1,7 +1,23 @@
 import flet as ft
+import pages as pg
 
-def main(page : ft.Page):
-    return 
+page_dict = {
+    "/": pg.Index,
+}
+
+
+def main(page: ft.Page):
+    page.title = "My Website"
+
+    def router(router) -> None:
+        page.views.clear()
+        page.views.append(page_dict[page.route](page))
+        page.update()
+
+    page.on_route_change = router
+    page.go("/")
+
+    return
 
 
 if __name__ == "__main__":
