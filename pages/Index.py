@@ -10,13 +10,14 @@ class Index(ft.View):
 
         self.build_content()
         self.appbar = self.build_appbar()
-
+        self.scroll = ft.ScrollMode.AUTO
         return
 
     def build_content(self):
         self.controls = [
             self.build_self_intro(),
             self.build_body(),
+            self.build_content_me_button(),
         ]
 
     def build_appbar(self) -> ft.AppBar:
@@ -31,7 +32,7 @@ class Index(ft.View):
         )
 
         return ft.AppBar(
-            leading=ft.Icon(ft.icons.PALETTE),
+            # leading=ft.Icon(ft.icons.PALETTE),
             center_title=False,
             title=ft.Text("KYLiN"),
             actions=[
@@ -89,6 +90,48 @@ class Index(ft.View):
                         "I'm a Data Analysis Sciences",
                         theme_style=ft.TextThemeStyle.HEADLINE_LARGE,
                     ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
+            height=200,
+            alignment=ft.alignment.center,
+        )
+
+    def build_content_me_button(self) -> ft.Container:
+
+        content_icon_size = 50
+
+        self.fb_button = ft.Image(
+            src="assets/bxl-facebook-circle.svg",
+            width=content_icon_size,
+            height=content_icon_size,
+        )
+
+        self.instagram_button = ft.Image(
+            src="assets/bxl-instagram-alt.svg",
+            width=content_icon_size,
+            height=content_icon_size,
+        )
+
+        self.linkedin_button = ft.Image(
+            src="assets/bxl-linkedin-square.svg",
+            width=content_icon_size,
+            height=content_icon_size,
+        )
+
+        self.github_button = ft.Image(
+            src="assets/bxl-github.svg",
+            width=content_icon_size,
+            height=content_icon_size,
+        )
+
+        return ft.Container(
+            content=ft.Row(
+                controls=[
+                    self.fb_button,
+                    self.instagram_button,
+                    self.linkedin_button,
+                    self.github_button,
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
