@@ -1,1 +1,12 @@
-# MyWebsite
+# MyWebsite Using Flet
+
+## Written By KYLiN
+
+---
+
+### Setup the project
+
+```sh
+pip install poetry 
+poetry install
+```
