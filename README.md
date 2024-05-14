@@ -10,3 +10,7 @@
 pip install poetry 
 poetry install
 ```
+
+### Note
+
+Box icon : <https://boxicons.com/>
