@@ -16,6 +16,7 @@ class Index(ft.View):
     def build_content(self):
         self.controls = [
             self.build_self_intro(),
+            self.build_body(),
         ]
 
     def build_appbar(self) -> ft.AppBar:
@@ -59,7 +60,6 @@ class Index(ft.View):
         )
 
     def build_self_intro(self) -> ft.Container:
-
         return ft.Container(
             content=ft.Row(
                 controls=[
@@ -71,6 +71,21 @@ class Index(ft.View):
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
             height=500,
-            bgcolor=ft.colors.ERROR,
+            # bgcolor=ft.colors.ERROR,
+            alignment=ft.alignment.center,
+        )
+
+    def build_body(self):
+        return ft.Container(
+            content=ft.Column(
+                controls=[
+                    ft.Text(
+                        "I'm a Data Analysis Sciences",
+                        theme_style=ft.TextThemeStyle.HEADLINE_LARGE,
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
+            height=200,
             alignment=ft.alignment.center,
         )
