@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "mywebsite"
+version = "0.1.0"
+description = ""
+authors = ["KeithLin724 <keithlin724@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flet = "^0.22.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
