@@ -25,6 +25,11 @@ class Index(ft.View):
         self.project_button = ft.TextButton("Project")
         self.about_button = ft.TextButton("About")
 
+        self.hire_me_button = ft.ElevatedButton(
+            "Hire Me !",
+            color=ft.colors.ERROR,
+        )
+
         return ft.AppBar(
             leading=ft.Icon(ft.icons.PALETTE),
             center_title=False,
@@ -32,7 +37,8 @@ class Index(ft.View):
             actions=[
                 self.home_button,
                 self.project_button,
-                self.project_button,
+                self.about_button,
+                self.hire_me_button,
             ],
         )
 
