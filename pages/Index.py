@@ -1,5 +1,7 @@
 import flet as ft
 
+from components import ContentButton, DisplaySvg
+
 
 class Index(ft.View):
     def __init__(self, page: ft.Page):
@@ -98,45 +100,38 @@ class Index(ft.View):
             alignment=ft.alignment.center,
         )
 
-    def build_content_button_component(
-        self, src: str, tooltip: str, url: str, content_icon_size: int = 50
-    ):
-        return ft.Container(
-            content=ft.Image(
-                src=src,
-                width=content_icon_size,
-                height=content_icon_size,
-                tooltip=tooltip,
-            ),
-            on_click=lambda _: self.page.launch_url(url=url),
-        )
-
     def build_content_me_button(self) -> ft.Container:
 
-        content_icon_size = 50
+        launch_url = lambda url: (lambda _: self.page.launch_url(url))
 
-        self.fb_button = self.build_content_button_component(
-            src="assets/bxl-facebook-circle.svg",
+        self.fb_button = ContentButton(
+            src=DisplaySvg.FACEBOOK,
             tooltip="Facebook",
-            url="https://www.facebook.com/profile.php?id=100009109213789&mibextid=2JQ9oc",
+            on_click=launch_url(
+                url="https://www.facebook.com/profile.php?id=100009109213789&mibextid=2JQ9oc"
+            ),
         )
 
-        self.instagram_button = self.build_content_button_component(
-            src="assets/bxl-instagram-alt.svg",
+        self.instagram_button = ContentButton(
+            src=DisplaySvg.INSTAGRAM,
             tooltip="Instagram",
-            url="https://www.instagram.com/lin.keith.24?igsh=MXR3b2dwcXVoZHd5dA==",
+            on_click=launch_url(
+                url="https://www.instagram.com/lin.keith.24?igsh=MXR3b2dwcXVoZHd5dA=="
+            ),
         )
 
-        self.linkedin_button = self.build_content_button_component(
-            src="assets/bxl-linkedin-square.svg",
+        self.linkedin_button = ContentButton(
+            src=DisplaySvg.LINKEDIN,
             tooltip="LinkedIn",
-            url="https://www.linkedin.com/in/keith-lin-23a423293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            on_click=launch_url(
+                url="https://www.linkedin.com/in/keith-lin-23a423293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            ),
         )
 
-        self.github_button = self.build_content_button_component(
-            src="assets/bxl-github.svg",
+        self.github_button = ContentButton(
+            src=DisplaySvg.GITHUB,
             tooltip="Github",
-            url="https://github.com/KeithLin724",
+            on_click=launch_url(url="https://github.com/KeithLin724"),
         )
 
         return ft.Container(
