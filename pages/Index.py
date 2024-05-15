@@ -90,7 +90,7 @@ class Index(ft.View):
             content=ft.Column(
                 controls=[
                     ft.Text(
-                        "I'm a Data Analysis Sciences",
+                        "I'm a Data Analysis Scientist",
                         theme_style=ft.TextThemeStyle.HEADLINE_LARGE,
                     ),
                 ],
