@@ -7,7 +7,7 @@ class TopAppBar(ft.AppBar):
 
         self.center_title = False
         self.title = ft.Text("KYLiN")
-
+        self.page = page
         self.build_button()
 
         self.actions = [
@@ -18,9 +18,18 @@ class TopAppBar(ft.AppBar):
         ]
 
     def build_button(self):
-        self.home_button = ft.TextButton("Home")
-        self.project_button = ft.TextButton("Project")
-        self.about_button = ft.TextButton("About")
+        self.home_button = ft.TextButton(
+            "Home",
+            on_click=lambda _: self.page.go("/"),
+        )
+        self.project_button = ft.TextButton(
+            "Project",
+            on_click=lambda _: self.page.go("/project"),
+        )
+        self.about_button = ft.TextButton(
+            "About",
+            on_click=lambda _: self.page.go("/about"),
+        )
 
         self.hire_me_button = ft.ElevatedButton(
             "Hire Me !",
