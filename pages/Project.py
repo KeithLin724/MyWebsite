@@ -1,4 +1,5 @@
 import flet as ft
+from components import TopAppBar
 
 
 class Project(ft.View):
@@ -9,6 +10,7 @@ class Project(ft.View):
         )
         self.page = page
         self.build_content()
+        self.appbar = TopAppBar(self.page)
         return
 
     def build_content(self):

@@ -3,6 +3,7 @@ import pages as pg
 
 page_dict = {
     "/": pg.Index,
+    "/project": pg.Project,
 }
 
 
