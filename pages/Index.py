@@ -1,6 +1,6 @@
 import flet as ft
 
-from components import ContentButton, DisplaySvg
+from components import ContentButton, DisplaySvg, TopAppBar
 
 
 class Index(ft.View):
@@ -12,7 +12,8 @@ class Index(ft.View):
         self.page = page
 
         self.build_content()
-        self.appbar = self.build_appbar()
+        self.appbar = TopAppBar(self.page)
+
         self.scroll = ft.ScrollMode.AUTO
         return
 
@@ -22,29 +23,6 @@ class Index(ft.View):
             self.build_body(),
             self.build_content_me_button(),
         ]
-
-    def build_appbar(self) -> ft.AppBar:
-
-        self.home_button = ft.TextButton("Home")
-        self.project_button = ft.TextButton("Project")
-        self.about_button = ft.TextButton("About")
-
-        self.hire_me_button = ft.ElevatedButton(
-            "Hire Me !",
-            color=ft.colors.ERROR,
-        )
-
-        return ft.AppBar(
-            # leading=ft.Icon(ft.icons.PALETTE),
-            center_title=False,
-            title=ft.Text("KYLiN"),
-            actions=[
-                self.home_button,
-                self.project_button,
-                self.about_button,
-                self.hire_me_button,
-            ],
-        )
 
     def intro_text(self) -> ft.Column:
         return ft.Column(
